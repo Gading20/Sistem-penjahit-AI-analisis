@@ -1,3 +1,7 @@
+# Copyright © 2026 Gading Ilham Saputra. All rights reserved.
+# This code is proprietary and confidential. Unauthorized copying, modification,
+# distribution, or use of this code is strictly prohibited without written permission.
+
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from app import db
 from app.models.user import User

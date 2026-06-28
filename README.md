@@ -2,6 +2,12 @@
 
 **Jahitln (TailorLink)** — Aplikasi manajemen jasa penjahit berbasis mobile + web dilengkapi analisis data dan AI.
 
+> **HAK CIPTA & LISENSI**
+>
+> Seluruh kode dalam repositori ini adalah milik **Gading Ilham Saputra** dan dilindungi oleh hak cipta.
+> DILARANG menggandakan, memodifikasi, mendistribusikan, atau menggunakan kode ini tanpa izin tertulis dari pemilik.
+> Lihat file [LICENSE](LICENSE) untuk informasi lengkap.
+
 ## Struktur Proyek
 
 ```

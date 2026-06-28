@@ -1,3 +1,7 @@
+# Copyright © 2026 Gading Ilham Saputra. All rights reserved.
+# This code is proprietary and confidential. Unauthorized copying, modification,
+# distribution, or use of this code is strictly prohibited without written permission.
+
 from functools import wraps
 from flask import session, redirect, url_for, flash, jsonify
 from flask_jwt_extended import verify_jwt_in_request, get_jwt

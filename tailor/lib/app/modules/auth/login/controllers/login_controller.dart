@@ -1,3 +1,6 @@
+// Copyright © 2026 Gading Ilham Saputra. All rights reserved.
+// This code is proprietary and confidential. Unauthorized copying, modification,
+// distribution, or use of this code is strictly prohibited without written permission.
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';

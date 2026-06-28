@@ -1,3 +1,7 @@
+# Copyright © 2026 Gading Ilham Saputra. All rights reserved.
+# This code is proprietary and confidential. Unauthorized copying, modification,
+# distribution, or use of this code is strictly prohibited without written permission.
+
 from flask import Blueprint, jsonify
 from flask_jwt_extended import get_jwt_identity, jwt_required
 from app import db
