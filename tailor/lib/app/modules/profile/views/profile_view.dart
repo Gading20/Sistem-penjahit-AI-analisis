@@ -111,6 +111,11 @@ class ProfileView extends GetView<ProfileController> {
                   title: 'Penjahit Favorit',
                   onTap: () => Get.toNamed('/favourite'),
                 ),
+                _MenuItem(
+                  icon: Icons.history_rounded,
+                  title: 'Log Aktivitas',
+                  onTap: () => Get.toNamed('/log-aktivitas'),
+                ),
               ]),
               const SizedBox(height: 16),
               _MenuCard(children: [

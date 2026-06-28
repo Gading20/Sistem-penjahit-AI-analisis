@@ -142,6 +142,7 @@ def create_app():
     from app.routes.admin import admin_bp
     from app.routes.ai_analysis import ai_bp
     from app.routes.informasi import informasi_bp
+    from app.routes.aktivitas import aktivitas_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(customer_bp)
@@ -149,6 +150,7 @@ def create_app():
     app.register_blueprint(admin_bp)
     app.register_blueprint(ai_bp)
     app.register_blueprint(informasi_bp)
+    app.register_blueprint(aktivitas_bp)
 
     # ── Create tables & default admin ─────────────────────────────────────
     with app.app_context():

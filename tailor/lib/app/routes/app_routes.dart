@@ -15,6 +15,7 @@ abstract class Routes {
   static const EXPLORE = _Paths.EXPLORE;
   static const FAVOURITE = _Paths.FAVOURITE;
   static const VERIFY_EMAIL = _Paths.VERIFY_EMAIL;
+  static const LOG_AKTIVITAS = _Paths.LOG_AKTIVITAS;
 }
 
 abstract class _Paths {
@@ -32,4 +33,5 @@ abstract class _Paths {
   static const EXPLORE = '/explore';
   static const FAVOURITE = '/favourite';
   static const VERIFY_EMAIL = '/verify-email';
+  static const LOG_AKTIVITAS = '/log-aktivitas';
 }

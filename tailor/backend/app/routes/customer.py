@@ -7,6 +7,7 @@ from app.models.tailor import Tailor, TailorAvailability
 from app.models.order import OrderQueue, OrderHistory
 from app.models.notification import Notification
 from app.models.favourite import Favourite
+from app.models.activity import UserActivity
 from app.middleware.jwt_guard import role_required
 from datetime import datetime, timedelta
 import os, uuid
@@ -154,6 +155,7 @@ def create_order():
     db.session.add(OrderHistory(order_id=order.id, status='pending', notes='Pesanan dibuat'))
     db.session.add(Notification(user_id=tailor.user_id, message=f'Pesanan baru #{qn} ({order_type})'))
     db.session.commit()
+    UserActivity.log(uid, 'order', f'Membuat pesanan #{qn} ({order_type}) di {tailor.shop_name}')
     return jsonify({"msg": "Pesanan berhasil dibuat", "order": order.to_dict()}), 201
 
 @customer_bp.route('/api/orders/my', methods=['GET'])

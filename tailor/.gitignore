@@ -46,3 +46,6 @@ app.*.map.json
 
 # Ignore large Android heap dump files
 *.hprof
+
+# Environment variables (secrets)
+.env

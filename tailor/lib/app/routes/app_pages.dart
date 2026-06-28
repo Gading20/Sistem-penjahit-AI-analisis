@@ -26,6 +26,8 @@ import '../modules/favourite/views/favourite_view.dart';
 import '../modules/favourite/controllers/favourite_controller.dart';
 import '../modules/auth/verify_email/views/verify_email_view.dart';
 import '../modules/auth/verify_email/controllers/verify_email_controller.dart';
+import '../modules/log_aktivitas/views/log_aktivitas_view.dart';
+import '../modules/log_aktivitas/controllers/log_aktivitas_controller.dart';
 
 part 'app_routes.dart';
 
@@ -109,6 +111,12 @@ class AppPages {
       page: () => const VerifyEmailView(),
       binding: BindingsBuilder(() => Get.lazyPut(() => VerifyEmailController())),
       transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: _Paths.LOG_AKTIVITAS,
+      page: () => const LogAktivitasView(),
+      binding: BindingsBuilder(() => Get.lazyPut(() => LogAktivitasController())),
+      transition: Transition.rightToLeft,
     ),
   ];
 }

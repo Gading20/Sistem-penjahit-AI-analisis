@@ -1,9 +1,10 @@
 from flask import Blueprint, request, jsonify, render_template, redirect, url_for, session, flash, current_app
-from flask_jwt_extended import create_access_token
+from flask_jwt_extended import create_access_token, get_jwt_identity
 from werkzeug.security import generate_password_hash
 from app import db, limiter
 from app.models.user import User
 from app.models.tailor import Tailor, TailorAvailability
+from app.models.activity import UserActivity
 from app.utils.email_util import generate_code, send_verification_email
 from google.oauth2 import id_token
 from google.auth.transport import requests as google_requests
@@ -69,6 +70,8 @@ def api_login():
 
     if not user.email_verified:
         return jsonify({"msg": "Silakan verifikasi email Anda terlebih dahulu"}), 403
+
+    UserActivity.log(user.id, 'login', f'Login dengan email/username')
 
     access_token = create_access_token(
         identity=str(user.id),
@@ -145,7 +148,12 @@ def api_register():
 
 @auth_bp.route('/api/auth/logout', methods=['POST'])
 def api_logout():
-    # Stateless JWT — client must discard token
+    # Stateless JWT — attempt to log user activity if token present
+    try:
+        uid = int(get_jwt_identity())
+        UserActivity.log(uid, 'logout', 'Logout dari aplikasi')
+    except Exception:
+        pass
     return jsonify({"msg": "Logout berhasil"}), 200
 
 
@@ -298,6 +306,8 @@ def api_google_login():
             "needs_verification": True,
             "email": email,
         }), 200
+
+    UserActivity.log(user.id, 'login', 'Login dengan Google')
 
     access_token = create_access_token(
         identity=str(user.id),
