@@ -1,40 +1,28 @@
-Sistem Jahitln
+# Jahitln — Mobile App & Backend
 
-IKUTI LANGKAH LANGKAH DI BAWAH AGAR APLIKASI BISA DIJALANKAN
+Aplikasi manajemen jasa penjahit berbasis Flutter (mobile) + Flask (backend).
 
-Masukan file sql ke xammp, atau laragon, aku pake laragon, kalo kamu xammp juga ga papa
+## Quick Start
+
 ```bash
-file sql di folder database
-```
+# 1. Import database
+mysql -u root -p tailorlink_db < database/jahit.sql
 
-Masuk ke folder BackEnd
-```bash
+# 2. Jalankan backend
 cd backend
-```
-```bash
+pip install -r requirements.txt
 flask run --debug
-```
 
-Daftar ngrok nya masuk ke website ngrok dan aktikan token nya
-Contoh:
-```bash
-ngrok.com
-```
-```bash
-ngrok config add-authtoken 3CiJdArSYnN8QJG3T4IlStILvqj_6GZysA2s3RAeoScYcZDGh
-```
-Sesuaikan portnya, cek di run.py apakah 5000? atau yang lain
-```bash
+# 3. Expose dengan ngrok (terminal baru)
 ngrok http 5000
-```
 
-Kembali lagi ke folder flutter caranya :
-```bash
+# 4. Update baseUrl di lib/app/data/providers/api_provider.dart
+#    dengan URL ngrok
+
+# 5. Jalankan Flutter
 cd ..
-```
-```bash
 flutter pub get
-```
-```bash
 flutter run
 ```
+
+Lihat panduan lengkap di [README.md](../README.md) (root proyek).
